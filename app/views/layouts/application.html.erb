@@ -11,6 +11,18 @@
   </head>
 
   <body>
+    <div>
+      <% if current_wizard %>
+        Hello <%= current_wizard.full_name %> |
+        <%= link_to 'Sign Out', destroy_wizard_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign In', new_wizard_session_path %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to 'Houses', houses_path %> |
+      <%= link_to 'School Applications', school_applications_path %>
+    </div>
     <%= yield %>
   </body>
 </html>
