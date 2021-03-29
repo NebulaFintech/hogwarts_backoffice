@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Run redis-server, rake db:seed, rails s.
+2. Log in as Harry an apply to Gryffindor.
+3. In an incognito window log in as Sorting Hat.
+4. Approve or deny school application.
+5. Taste the magic.
