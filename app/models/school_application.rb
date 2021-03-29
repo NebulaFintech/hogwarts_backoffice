@@ -12,11 +12,13 @@ class SchoolApplication < ApplicationRecord
       update(status: :approved)
       wizard.update(house_id: house.id)
     end
+    ActionCable.server.broadcast("school_applications_#{wizard.id}", { message: "You're a wizard #{wizard.names}", status: status })
   end
 
   def deny
     return unless pending?
     update(status: :denied)
+    ActionCable.server.broadcast("school_applications_#{wizard.id}", { message: "You're a muggle #{wizard.names}!", status: status })
   end
 
   private

@@ -1,0 +1,25 @@
+<h1>SchoolApplications</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>House</th>
+    <th colspan="2">Student</th>
+    <% if current_wizard.staff? %>
+      <th>Actions</th>
+    <% end %>
+  </tr>
+  <% @school_applications.each do |school_application| %>
+    <tr>
+      <td><%= school_application.status %></td>
+      <td><%= school_application.house.name %></td>
+      <td><%= school_application.wizard.full_name %></td>
+      <td><%= link_to 'show', school_application_path(school_application) %></td>
+      <% if current_wizard.staff? && school_application.pending? %>
+        <td><%= link_to 'approve', approve_school_application_path(school_application) %> |
+          <%= link_to 'deny', deny_school_application_path(school_application) %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
